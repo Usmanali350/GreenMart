@@ -1,0 +1,93 @@
+[
+    {
+       
+        "name": "Bread",
+        "quantity": 150,
+        "price": 2.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Bran-Bread-Sliced_600x.jpg?v=1727777168",
+        "description": "Fresh and soft loaf"
+    },
+    {
+       
+        "name": "Croissant",
+        "quantity": 100,
+        "price": 3.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/ButterCroissantBig_7b9377c5-c861-4519-bff3-293e61cf7ef6_600x.jpg?v=1721735424",
+        "description": "Flaky and buttery"
+    },
+    {
+        
+        "name": "Focaccia",
+        "quantity": 120,
+        "price": 2.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Focaccia_600x.jpg?v=1721737538",
+        "description": "Chewy and delicious"
+    },
+    {
+        
+        "name": "Muffin",
+        "quantity": 130,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/DinnerRoll_600x.jpg?v=1721737728",
+        "description": "Moist and fluffy"
+    },
+    {
+    
+        "name": "Milk Buns",
+        "quantity": 140,
+        "price": 2.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Minibuns_600x.jpg?v=1721722141",
+        "description": "Sweet and soft"
+    },
+    {
+        
+        "name": "Cake",
+        "quantity": 90,
+        "price": 5.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/38TFKarjp1515544722613.jpg",
+        "description": "Rich and creamy"
+    },
+    {
+      
+        "name": "Almond Biscuit",
+        "quantity": 110,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Almondbiscotti_600x.jpg?v=1724418911",
+        "description": "Fudgy and dense"
+    },
+    {
+        "name": "Pastry",
+        "quantity": 80,
+        "price": 4.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/buguette_600x.jpg?v=1721734507",
+        "description": "Light and sweet"
+    },
+    {
+        "name": "Biscuit",
+        "quantity": 160,
+        "price": 2.50,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/38TFKarjp1515544722613.jpg",
+        "description": "Crispy and golden"
+    },
+    {
+        "name": "Tart",
+        "quantity": 70,
+        "price": 4.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/BranBread._781b8cb7-8cdd-4c02-8246-477c94e70fff_600x.jpg?v=1722600519",
+        "description": "Fruity and tangy"
+    },
+    {
+        "name": "Pancake",
+        "quantity": 110,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/MultiGrainLoaf_1f065f02-af62-407b-a09d-a4c027db60d9_600x.jpg?v=1721738406",
+        "description": "Fluffy and sweet"
+    },
+    {
+        "name": "Eclair",
+        "quantity": 100,
+        "price": 4.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/image_7_152x.png?v=1721739621",
+        "description": "Cream-filled delight"
+    }
+]

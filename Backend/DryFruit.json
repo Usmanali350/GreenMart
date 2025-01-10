@@ -1,0 +1,79 @@
+[
+    {
+        
+        "name": "Almonds",
+        "quantity": 100,
+        "price": 12.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3aK64HORsGr14740052893-224x224.jpg",
+        "description": "Rich in healthy fats and protein"
+    },
+    {
+        
+        "name": "Cashews",
+        "quantity": 120,
+        "price": 10.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3IBaOu1cKwy14740066413-224x224.jpg",
+        "description": "Creamy and crunchy texture"
+    },
+    {
+       
+        "name": "Walnuts Kernel",
+        "quantity": 80,
+        "price": 14.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3DgV3p8ifTi14740095473-224x224.jpg",
+        "description": "Good for brain health"
+    },
+    {
+       
+        "name": "Pistachios",
+        "quantity": 110,
+        "price": 13.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/1aMn70CenJY14825009081-224x224.jpg",
+        "description": "Crunchy and nutrient-dense"
+    },
+    {
+        
+        "name": "Raisins",
+        "quantity": 150,
+        "price": 6.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/blackraisin_3_a525af51-a762-4db5-9ecd-0be1f09e92ff_600x.jpg?v=1729597713",
+        "description": "Sweet and chewy"
+    },
+    {
+       
+        "name": "Dates",
+        "quantity": 130,
+        "price": 8.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3cl9AXlS70a15557533713.jpg",
+        "description": "Natural sweetener and energy booster"
+    },
+    {
+       
+        "name": "Hazelnuts",
+        "quantity": 90,
+        "price": 11.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Edits-90_a9ae60a4-6d8d-4e78-b087-75af52915aca_600x.jpg?v=1729598271",
+        "description": "Perfect for snacking"
+    },
+    {
+        "name": "Apricots",
+        "quantity": 140,
+        "price": 7.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3Rwm3q4mKqa14740062683-224x224.jpg",
+        "description": "Soft and rich in fiber"
+    },
+    {
+        "name": "Figs",
+        "quantity": 100,
+        "price": 9.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/3ZfVq7lIZlZ14740082383-224x224.jpg",
+        "description": "Natural sweetness and chewy"
+    },
+    {
+        "name": "Macadamia",
+        "quantity": 70,
+        "price": 15.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/Edits-63_ac37e4df-9712-406d-a742-935839287906_600x.jpg?v=1729598276",
+        "description": "Buttery and rich flavor"
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+       
+        "name": "Milk",
+        "quantity": 200,
+        "price": 1.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/PremaBlueberryLaban_366x.png?v=1722084001",
+        "description": "Fresh and wholesome"
+    },
+    {
+        
+        "name": "Cheese",
+        "quantity": 150,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/RedChedderCheese-Exotic_100-125G_b51915b9-db3c-4983-a153-cdad9448bb10_600x.jpg?v=1721722324",
+        "description": "Rich in calcium and protein"
+    },
+    {
+       
+        "name": "Yogurt",
+        "quantity": 100,
+        "price": 2.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/TCF-SourCream_5e0c8bbe-9c24-4c46-b958-676d45d96aa8_600x.jpg?v=1721722368",
+        "description": "Good for digestion"
+    },
+    {
+    
+        "name": "Butter",
+        "quantity": 120,
+        "price": 2.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/FreshSt-AustralianButter-Unsalted-200g_09b89b52-d20a-4d51-bf6a-2543e09a6092_600x.jpg?v=1721686116",
+        "description": "Rich and creamy"
+    },
+    {
+        
+        "name": "Cream",
+        "quantity": 150,
+        "price": 3.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/FreshbasketProducts_11_600x.jpg?v=1721721605",
+        "description": "Perfect for desserts"
+    },
+    {
+        
+        "name": "Cottage Cheese",
+        "quantity": 100,
+        "price": 4.00,
+        "img": "https://www.subziphal.com/wp-content/uploads/2021/05/cottage_cheese.jpg",
+        "description": "Light and healthy option"
+    },
+    {
+       
+        "name": "Ghee",
+        "quantity": 80,
+        "price": 5.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/FreshbasketProducts_1_-2024-06-28T191442.852_600x.jpg?v=1721995285",
+        "description": "Traditional clarified butter"
+    },
+    {
+       
+        "name": "Chocolate",
+        "quantity": 120,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/brownie_1_600x.jpg?v=1721734959",
+        "description": "Delicious and creamy"
+    },
+    {
+       
+        "name": "Paneer",
+        "quantity": 140,
+        "price": 4.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/EmmentalCheeseExotic-_100-125G_1b2f8ba7-4106-4d50-9154-cc63e13c53a8_600x.jpg?v=1721720181",
+        "description": "Fresh and soft"
+    },
+    {
+        
+        "name": "Sour Cream",
+        "quantity": 100,
+        "price": 2.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/TCF-SourCream_5e0c8bbe-9c24-4c46-b958-676d45d96aa8_600x.jpg?v=1721722368",
+        "description": "Tangy and creamy"
+    },
+    {
+       
+        "name": "Evaporated Milk",
+        "quantity": 90,
+        "price": 2.50,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/FreshbasketProducts_1_42_60966498-347c-4d90-959b-d801e18fb6e7_600x.jpg?v=1721978629",
+        "description": "Rich and creamy milk"
+    },
+    {
+       
+        "name": "Whipped Cream",
+        "quantity": 80,
+        "price": 3.00,
+        "img": "https://freshbasket.com.pk/cdn/shop/files/PuckCreamCheeseGarlicTub200Gm_600x.jpg?v=1723457424",
+        "description": "Fluffy and sweet"
+    }
+]

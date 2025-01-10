@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Crunchies munchies bundle",
+      "price": 4500,
+      "quantity": "5 kg",
+      "img": "https://freshbasket.com.pk/cdn/shop/files/nutty-trio_600x.jpg?v=1726943135",
+      "description": "A mix of chicken, beef, and mutton cuts for the whole family."
+    },
+    {
+      "name": "Nutty Trio",
+      "price": 3500,
+      "quantity": "4 kg",
+      "img": "https://freshbasket.com.pk/cdn/shop/files/nutty-trio_600x.jpg?v=1726943135",
+      "description": "Perfect for a BBQ party, includes beef ribs, chicken wings, and mutton chops."
+    },
+    {
+      "name": "Tropical Bliss Bundle",
+      "price": 4000,
+      "quantity": "5 kg",
+      "img": "https://freshbasket.com.pk/cdn/shop/files/FreshbasketProducts_3_23cc3e4f-e16f-45d0-9379-f6114332d148_600x.jpg?v=1721987088",
+      "description": "Includes chicken thighs, beef steaks, and mutton ribs for grilling."
+    },
+    {
+      "name": "Dip & Dine Bundle",
+      "price": 3000,
+      "quantity": "4 kg",
+      "img": "https://freshbasket.com.pk/cdn/shop/files/dip-and0dine-bundle_600x.jpg?v=1726943121",
+      "description": "A selection of minced meats for making delicious kebabs."
+    },
+    {
+      "name": "Fresh Meat Bundle",
+      "price": 4200,
+      "quantity": "5 kg",
+      "img": "https://fruitsabzi.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1735144940-httpsfruitsabzi.pkKarachibeef-boneless-boti.jpg.png%3Fq%3D10&w=640&q=75",
+      "description": "A bundle of meat perfect for stews and slow cooking, with cuts of beef and mutton."
+    },
+    {
+      "name": "Ceasar Crisp Combo",
+      "price": 2500,
+      "quantity": "5 kg",
+      "img": "https://freshbasket.com.pk/cdn/shop/files/caesar_600x.png?v=1728374502",
+      "description": "For chicken lovers, a mix of chicken breasts, thighs, wings, and drumsticks."
+    },
+    {
+        "name": "Thai Flavour Pack",
+        "price": 3800,
+        "quantity": "5 kg",
+        "img": "https://freshbasket.com.pk/cdn/shop/files/thaiflavourpack_600x.jpg?v=1726943151",
+        "description": "A combination of chicken"
+    }
+]
