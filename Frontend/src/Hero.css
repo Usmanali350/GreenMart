@@ -1,0 +1,71 @@
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+/* Carousel Container */
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Carousel */
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+}
+
+.carousel-item {
+    flex: 1;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel {
+        height: 50vh;
+    }
+
+    .carousel-item img {
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel {
+        height: 40vh;
+    }
+
+    .carousel-item img {
+        border-radius: 4px;
+    }
+}

@@ -1,11 +1,49 @@
- /* <BrowserRouter>
+
+    .navbar1{
+      background-color: rgb(5, 253, 5);
+    }
+    /* .navbar1 {
+      background-color: #333;
+      padding: 10px 20px;
+    } */
     
-      <Routes>
-        {/* <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */
-        /* </Route>
-      </Routes>
-    </BrowserRouter> */
+    .navbar-brand img {
+      max-width: 100%;
+    }
+    
+    .navbar-items {
+      gap: 15px;
+    }
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-input {
+      width: 200px;
+      padding: 5px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .search-btn {
+      background-color: #333;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .search-results {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+    }
+    
+    .search-item {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    

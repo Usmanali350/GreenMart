@@ -1,8 +1,9 @@
 
 const { MongoClient } = require('mongodb');
 
-// MongoDB connection URI
+
 const uri = "mongodb://127.0.0.1:27017";
+// const uri = "mongodb://khan:112233//@cluster0-shard-00-00.6ofxk.mongodb.net:27017,cluster0-shard-00-01.6ofxk.mongodb.net:27017,cluster0-shard-00-02.6ofxk.mongodb.net:27017/?replicaSet=atlas-lsqpnr-shard-0&ssl=true&authSource=admin"
 const dbName = "GreenMart"; 
 
 let db;

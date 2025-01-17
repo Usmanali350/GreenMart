@@ -1,7 +1,9 @@
 const express = require('express')
 const { connectToDatabase, getDb } = require('./database');
 const { ObjectId } = require('mongodb');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 app.use(express.json());
 // Test Connection Route
 app.get('/', async (req, res) => {
@@ -22,7 +24,7 @@ app.get('/api/Fruit', async (req, res) => {
     res.json(fruits);
   } catch (error) {
     console.log('Failed to fetch Fruit', error);
-    res.status(500).json( error, 'Nerwork error 500 Fruit item' );
+    res.status(500).json( {error: 'Nerwork error 500 Fruit item'} );
   }
 });
 app.post('/api/Fruit', async (req, res) => {
@@ -91,7 +93,7 @@ app.get('/api/Vegitables',async(req,res)=>{
     res.json(Vegitables);
   }catch (error){
   console.log('failed to fetct vegitables',error)
-  res.status(500).json(error,'error during getting an item form Vegitables')
+  res.status(500).json({error:'error during getting an item form Vegitables'})
   }
 
 })
@@ -190,7 +192,7 @@ app.delete('/api/Dairy/:id',async(req,res)=>{
     };
     const objectId=new ObjectId(id)
     const result=await collection.deleteOne({_id:objectId})
-    if (result.deletedCount===0){
+    if(result.deletedCount === 0) {
       return res.status(404).json({message:'item not found in delete section'})
     }
     res.status(200).json({message:'item deleted successfully from Dairt items'})
@@ -568,16 +570,196 @@ app.put('/api/Bundle/:id',async(req,res)=>{
     res.status(500).json({error:'network error in updating Bundle item'})
   }
 })
+app.post('/api/Order',async(req,res)=>{
+  try{
+  const {userId,products,deliveryAddress,totalAmount}=req.body
+   const Order ={
+  userId:new ObjectId(userId),
+  products:products.map(product=>({
+   productId:new ObjectId(product.productId),
+   quantity:product.quantity,
+   price:product.price,
+   description:product.description,
+  })),
+  deliveryAddress,
+  orderStatus:'pending',
+  paymentStatus:'pending',
+  totalAmount,
+  deliveryPersonalId:null,
+  deliveryDate:null,
+  createdAt:new Date(),
+  updatedAt:new Date()
+   }
+   const db=getDb();
+   const result=await db.collection('Order').insertOne(Order);
+   res.status(200).json({
+    message:'order created successfuly',
+    orderId:result.insertedId
+   })
+  }catch(error){
+    console.log('error occur in order section',error);
+    res.status(500).json({error:'network error in order section'})
+  }
+})
+app.get('/api/Order/:id',async(req,res)=>{
+  try{
+   const db=getDb();
+   const collection=db.collection('Order')
+   const {id}=req.params;
+   const order=await collection.findOne({_id:new ObjectId(id)})
+   if(!order){
+    return res.status(404).json({message:'ordernot found'})
+   }
+   res.status(200).json(order)
+  }catch(error) {
+  console.log('error occour while fetching Order',error);
+  res.status(500).json({error:'network error in fetching order'})
+  }
+})
+app.delete('/api/Order/:id',async(req,res)=>{
+  const {id}=req.params
+  try{
+    const db=getDb();
+   const deleteOrder=await db.collection('Order').deleteOne({_id:new ObjectId(id)})
+   if(deleteOrder.deletedCount===0){
+    return res.status(404).json({message:'order deleting itme not found'})
+   }
+   res.status(200).send('order deleted successfully')
+  }catch(error){
+    console.log('error occur in deleting order',error)
+    res.status(500).json({error:'network error in deleting order'})
+  }
+})
+app.put('/api/Order/:id',async(req,res)=>{
+  const {id}=req.params;
+  const updatedData=req.body;
+  try{
+   const db=getDb();
+   const result=await db.collection('Order').updateOne(
+    {_id:new ObjectId(id)},
+    {$set:updatedData})
+    if(result.matchedCount===0){
+      return res.status(404).json({message:'updatng  order not found'})
+    }
+    res.status(200).json({message:"order updated successfully",updatedData})
+  }catch(error){
+    console.log('error occur in updating Order',error);
+    res.status(500).json({error:'network error in uodating Order item'})
+  }
+})
+app.get('/api/Search', async (req, res) => {
+  const { q } = req.query;
+  if (!q) {
+    return res.status(400).json({ message: 'Search term is required' });
+  }
+  try {
+    const db = getDb();
+    const collections = await db.listCollections().toArray();
+    const results = [];
+    for (const collection of collections) {
+      const collectionName = collection.name;
+      const searchResults = await db.collection(collectionName).find({
+        $or: [
+          { name: { $regex: q, $options: 'i' } },
+          { email: { $regex: q, $options: 'i' } },
+          { description: { $regex: q, $options: 'i' } }
+        ]
+      }).toArray();
 
-//order Selection
-app.post('')
-//port
-const PORT = 4091;
+      if (searchResults.length > 0) {
+        results.push({ collection: collectionName, data: searchResults });
+      }
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'No matching results found' });
+    }
+
+    res.json(results);
+  } catch (error) {
+    console.error('Error searching the database:', error);
+    res.status(500).json({ error: 'Network error occurred while searching' });
+  }
+});
+//for cart
+app.post('/Cart/add', async (req, res) => {
+  const { userId, productId, name, img, price, quantity } = req.body;
+  try {
+    const db = getDb();
+    const cart = await db.collection('Cart').findOne({ userId });
+
+    if (!cart) {
+      // If no cart exists, create a new one
+      await db.collection('Cart').insertOne({
+        userId,
+        items: [{ productId, name, img, price, quantity }],
+      });
+    } else {
+      const itemIndex = cart.items.findIndex(item => item.productId === productId);
+
+      if (itemIndex > -1) {
+        cart.items[itemIndex].quantity += quantity;
+      } else {
+        cart.items.push({ productId, name, img, price, quantity });
+      }
+      await db.collection('Cart').updateOne(
+        { userId },
+        { $set: { items: cart.items } }
+      );
+    }
+
+    res.status(200).json({ message: 'Item added to cart', success: true });
+  } catch (error) {
+    console.error('Error occurred while adding to cart:', error);
+    res.status(500).json({ error: 'An error occurred while adding the item to the cart.' });
+  }
+});
+app.get('/Cart/:userId',async(req,res)=>{
+  const {userId}=req.params
+  try{
+   const db=getDb();
+   const Cart=await db.collection('Cart').findOne({userId})
+   if(!Cart){
+   return res.status(404).json({message:'Cart is empty',success:false})
+   };
+   res.status(200).json({success:true,Cart:Cart.items})
+  }catch(error){
+    console.log('error occur in gettig cart record',error);
+    res.status(500).json({error:'network error in getting cart record'})
+  }
+})
+app.delete('/Cart/remove', async (req, res) => {
+  const { userId, productId } = req.body;
+
+  try {
+    const db = getDb();
+
+    
+    const Cart = await db.collection('Cart').findOne({ userId });
+    console.log('Cart found:', Cart);
+    if (!Cart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+    const itemExists = Cart.items.some(item => item.productId === productId);
+    if (!itemExists) {
+      return res.status(404).json({ message: 'Item not found in cart' });
+    }
+    const updatedItems = Cart.items.filter(item => item.productId !== productId);
+    await db.collection('Cart').updateOne(
+      { userId },
+      { $set: { items: updatedItems } }
+    );
+    res.status(200).json({ message: 'Item removed from cart' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+const PORT = 4096;
 const startServer = async () => {
   await connectToDatabase();
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-  });
-};
-startServer();
-      
+  }
+  )};
+startServer()
