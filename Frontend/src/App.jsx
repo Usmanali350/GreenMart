@@ -8,6 +8,7 @@ import Navbar2 from './Navbar2';
 import Navbar1 from './Navbar1';
 import Herosection from './Hero';
 import Bakery from './Bakery';
+import Dairy from './Dairy';
 
 const Home = () => <div>Home Page</div>;
 const About = () => <div>About Page</div>;
@@ -21,7 +22,7 @@ const Contact = () => <div>Contact Page</div>;
 function App() {
   const [cart, setCart] = useState([]);
 
-  // Add to Cart handler
+ 
   const handleAddToCart = (item) => {
     setCart((prevCart) => [...prevCart, item]);
     alert(`${item.name} added to the cart!`);
@@ -29,18 +30,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Pass cart count to Navbar1 */}
       <Navbar1 cartCount={cart.length} />
       <Herosection />
       <Navbar2 />
-
-      {/* Routes */}
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route 
-          path="/Bakery" 
-          element={<Bakery onAddToCart={handleAddToCart} />} 
-        />
+        <Route   path="/Bakery"  element={<Bakery onAddToCart={handleAddToCart} />}  />
+        <Route   path="/Dairy"  element={<Dairy 
+        // onAddToCart={handleAddToCart}
+         />}  />
+          
         <Route path="/services" element={<Services />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/shop" element={<Shop />} />

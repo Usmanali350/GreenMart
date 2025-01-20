@@ -714,7 +714,7 @@ app.post('/Cart/add', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while adding the item to the cart.' });
   }
 });
-app.get('/Cart/:userId',async(req,res)=>{
+app.get('/Cart',async(req,res)=>{
   const {userId}=req.params
   try{
    const db=getDb();
