@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Spinner } from 'react-bootstrap'; 
+import { Spinner } from 'react-bootstrap';
 
 const Dairy = () => {
     const [item, setItem] = useState([]);
@@ -15,7 +15,7 @@ const Dairy = () => {
                 setLoader(false);
             } catch (err) {
                 setError('Failed to fetch data');
-                setLoader(false); 
+                setLoader(false);
             }
         };
 
@@ -39,14 +39,14 @@ const Dairy = () => {
     return (
         <div className="container">
             <div className="row">
-                {item.map((dairyItem, index) => (
-                    <div key={index} className="col-md-4 mb-4">
+                {item.map((item, index) => (
+                    <div key={index} className="col-md-3 mb-4">
                         <div className="card">
-                            <img src={dairyItem.imageUrl} alt={dairyItem.name} className="card-img-top" />
+                            <img src={item.img} alt={item.name} className="card-img-top" />
                             <div className="card-body">
-                                <h5 className="card-title">{dairyItem.name}</h5>
-                                <p className="card-text">{dairyItem.description}</p>
-                                <p className="card-text"><strong>Price:</strong> ${dairyItem.price}</p>
+                                <h5 className="card-title">{item.name}</h5>
+                                <p className="card-text">{item.description}</p>
+                                <p className="card-text"><strong>Price:</strong> ${item.price}</p>
                                 <a href="#" className="btn btn-primary">Add to Cart</a>
                             </div>
                         </div>

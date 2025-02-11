@@ -62,7 +62,7 @@ const Navbar2 = () => {
                 </Link>
               </li>
               <li className="nav-item ms-2 d-none d-lg-block">
-                <Link className="nav-link lbg ms-4 ps-4 fw-bold text-center gap-2 w-100" to="/vegetables">
+                <Link className="nav-link lbg ms-4 ps-4 fw-bold text-center gap-2 w-100" to="/Vegitable">
                   <FaCarrot className="me-2" /> Vegetables
                 </Link>
               </li>
@@ -85,8 +85,6 @@ const Navbar2 = () => {
           </div>
         </div>
       </nav>
-
-      
       <nav className="navbar  d-lg-none ms-1 me-1" style={{backgroundColor:'#afa7a7',borderRadius:'16px'}}>
         <div className="container-fluid d-flex justify-content-around align-items-center">
           {/* Horizontal Links */}
@@ -107,8 +105,6 @@ const Navbar2 = () => {
             <div>Delivery</div>
           </Link>
         </div>
-
-        {/* Dropdown for Categories */}
         {showCategories && (
           <div className="dropdown-menu d-block position-relative">
             <button
@@ -123,16 +119,16 @@ const Navbar2 = () => {
             <Link className="dropdown-item" to="/dairy">
               <FaCheese className="me-2" /> Dairy
             </Link>
-            <Link className="dropdown-item" to="/fruit">
+            <Link className="dropdown-item" to="/Fruit">
               <FaAppleAlt className="me-2" /> Fruit
             </Link>
             <Link className="dropdown-item" to="/dryfruit">
               <FaSeedling className="me-2" /> DryFruit
             </Link>
-            <Link className="dropdown-item" to="/vegetables">
+            <Link className="dropdown-item" to="/Vegitable">
               <FaCarrot className="me-2" /> Vegetables
             </Link>
-            <Link className="dropdown-item" to="/meat">
+            <Link className="dropdown-item" to="/Meat">
               <FaDrumstickBite className="me-2" /> Meat
             </Link>
             <Link className="dropdown-item" to="/bundle">
