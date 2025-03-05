@@ -1,6 +1,7 @@
 const express = require('express')
 const { connectToDatabase, getDb } = require('./database');
 const { ObjectId } = require('mongodb');
+const bcrypt = require("bcryptjs");
 const cors = require('cors');
 const app = express();
 app.use(cors());
@@ -570,6 +571,46 @@ app.put('/api/Bundle/:id',async(req,res)=>{
     res.status(500).json({error:'network error in updating Bundle item'})
   }
 })
+app.post('/api/Signup',async(req,res)=>{
+  const {name,email,password}=req.body;
+  try{
+   const db=getDb();
+   const Usercollection=db.collection('User')
+   const existingUser= await Usercollection.findOne({email});
+   if(existingUser){
+    return res.status(400).json({message:'User already exsist'})
+   }
+   const hashedPassword=await bcrypt.hash(password,10)
+   await Usercollection.insertOne({name,email,password:hashedPassword})
+   res.status(201).json({message:'User registres successfully'})
+  }catch(error){
+    console.log('error occurin signing up ',error);
+    res.status(500).json({error:' signig up failed'})
+  }
+})
+app.post('/api/login', async (req, res) => {
+  const { email, password } = req.body;
+  
+  try {
+    const db = getDb();
+    const User = await db.collection('User').findOne({ email }); // Await the result
+
+    if (!User) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(password, User.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    res.json({ message: 'Login successful', userId: User._id });
+  } catch (error) {
+    console.log('Error occurred while logging in:', error);
+    res.status(500).json({ error: 'Login failed' });
+  }
+});
+
 app.post('/api/Order',async(req,res)=>{
   try{
   const {userId,products,deliveryAddress,totalAmount}=req.body
@@ -681,7 +722,7 @@ app.get('/api/Search', async (req, res) => {
     res.status(500).json({ error: 'Network error occurred while searching' });
   }
 });
-//for cart
+
 app.post('/Cart/add', async (req, res) => {
   const { userId, productId, name, img, price, quantity } = req.body;
   try {
@@ -689,7 +730,6 @@ app.post('/Cart/add', async (req, res) => {
     const cart = await db.collection('Cart').findOne({ userId });
 
     if (!cart) {
-      // If no cart exists, create a new one
       await db.collection('Cart').insertOne({
         userId,
         items: [{ productId, name, img, price, quantity }],

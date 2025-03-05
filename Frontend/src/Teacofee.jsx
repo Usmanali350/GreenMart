@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 
 const Vegetable = () => {
   const [item, setItem] = useState([]);
@@ -34,7 +35,7 @@ const Vegetable = () => {
   if (error) {
     return <div className="alert alert-danger">{error}</div>;
   }
-
+const dispatch=useDispatch();
   return (
     <div className="container">
       <div className="row">
@@ -46,9 +47,10 @@ const Vegetable = () => {
                 <div className="card-body">
                   <div className="card-title">{item.name}</div>
                   <div className="card-text">
-                    <strong>Price:</strong> ${item.price}
+                    <strong>Price:</strong> RS: {item.price}
                   </div>
                   <div className="card-text">{item.description}</div>
+                  <button  className='btn btn-warning shadow fw-bold' onClick={()=> dispatch(addToCart(item))}>Add to cart</button>
                 </div>
               </div>
             </div>

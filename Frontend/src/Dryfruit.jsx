@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { addToCart } from './CartSlice';
 
  const Dryfruit = () => {
   const [item, setItem] = useState([])
@@ -31,6 +33,7 @@ import { Spinner } from 'react-bootstrap';
   if(error){
     return <div className='alert alert-danger'>{error}</div>
   }
+  const dispatch=useDispatch();
   return (
     <div className='container'>
     <div className="row">
@@ -42,8 +45,9 @@ import { Spinner } from 'react-bootstrap';
               <img src={item.img} alt={item.name} className='card-img-top' />
               <div className="card-body">
                 <div className="card-title h4">{item.name}</div>
-                <div className="card-text"><strong>Price</strong> ${item.price}</div>
+                <div className="card-text"><strong>Price</strong> RS: {item.price}</div>
                 <div className="card-text">{item.description}</div>
+                <button className='btn btn-warning fw-bold shadow' onClick={()=> dispatch(addToCart(item))}>Add to cart</button>
               </div>
             </div>
           </div>

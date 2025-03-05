@@ -5,9 +5,36 @@
     overflow: hidden;
 }
 
+.Toastify__toast-container {
+    z-index: 9999;
+}
+
+.Toastify__toast {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Toastify__toast--success {
+    background-color:white !important;
+    color: white !important;
+}
+
+.Toastify__toast--error {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.Toastify__progress-bar {
+    background-color: white !important;
+}
+
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    color: white;
 }
 
 .card img {

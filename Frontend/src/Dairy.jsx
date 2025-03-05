@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { addToCart } from "./CartSlice";
 import { Spinner } from 'react-bootstrap';
 
 const Dairy = () => {
@@ -18,7 +20,6 @@ const Dairy = () => {
                 setLoader(false);
             }
         };
-
         fetchData();
     }, []);
 
@@ -35,7 +36,7 @@ const Dairy = () => {
     if (error) {
         return <div className="alert alert-danger">{error}</div>;
     }
-
+    const dispatch = useDispatch();
     return (
         <div className="container">
             <div className="row">
@@ -46,9 +47,9 @@ const Dairy = () => {
                             <div className="card-body">
                                 <h5 className="card-title">{item.name}</h5>
                                 <p className="card-text">{item.description}</p>
-                                <p className="card-text"><strong>Price:</strong> ${item.price}</p>
-                                <a href="#" className="btn btn-primary">Add to Cart</a>
-                            </div>
+                                <p className="card-text"><strong>Price:</strong> RS: {item.price}</p>
+                                <button className='btn btn-warning shadow fw-bold' onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
+                                </div>
                         </div>
                     </div>
                 ))}

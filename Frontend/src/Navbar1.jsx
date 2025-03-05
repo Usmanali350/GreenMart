@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import './Navbar1.css';
 import { FaShoppingCart } from 'react-icons/fa';
-
-const Navbar1 = ({ cartCount }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCart } from "./CartSlice"; 
+import './Navbar1.css';
+const Navbar1 = () => {
   const [SearchQuery, SetSearchQuery] = useState('');
   const [SearchInput, SetSearchInput] = useState(false);
+  const dispatch = useDispatch();
+  const { totalQuantity } = useSelector((state) => state.cart); 
 
-  const handleSearch = async () => {
+  useEffect(() => {
+    dispatch(fetchCart('123')); 
+  }, [dispatch]);
+
+  const handleSearch = () => {
     if (!SearchQuery.trim()) {
       alert('Please enter a search term');
       return;
     }
-    // Implement search logic here
   };
 
   return (
@@ -28,6 +34,7 @@ const Navbar1 = ({ cartCount }) => {
             <motion.div className='search-icon-container me-lg-5 me-sm-5' whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.9 }}>
               <FiSearch size={24} color='white' style={{ cursor: 'pointer' }} onClick={() => SetSearchInput(!SearchInput)} />
             </motion.div>
+
             {SearchInput && (
               <motion.div
                 className='Search-container d-flex align-items-center me-3'
@@ -47,19 +54,21 @@ const Navbar1 = ({ cartCount }) => {
                 </motion.button>
               </motion.div>
             )}
-            <motion.a
+
+            <motion.div
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 1.9 }}
               className='nav-link text-danger position-relative ms-sm-3'
-              href='#cart'
             >
-              <FaShoppingCart size={24} />
-              {cartCount > 0 && (
+              <Link to="/Cart">
+                <FaShoppingCart size={24} />
+              </Link>
+              {totalQuantity > 0 && (
                 <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info'>
-                  {cartCount}
+                  {totalQuantity}
                 </span>
               )}
-            </motion.a>
+            </motion.div>
           </div>
         </div>
       </nav>
