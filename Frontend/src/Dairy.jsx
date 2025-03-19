@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { addToCart } from "./CartSlice";
-import { Spinner } from 'react-bootstrap';
+import { Spinner, ToastContainer } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const Dairy = () => {
     const [item, setItem] = useState([]);
@@ -36,9 +37,15 @@ const Dairy = () => {
     if (error) {
         return <div className="alert alert-danger">{error}</div>;
     }
+    
     const dispatch = useDispatch();
+    const handleAddToCart =(item)=>{
+        dispatch(addToCart(item))
+        toast.success(`${item.name} Added to cart ! `, {position: 'top-right'})
+    }
     return (
         <div className="container">
+            <ToastContainer/>
             <div className="row">
                 {item.map((item, index) => (
                     <div key={index} className="col-md-3 mb-4">
@@ -48,7 +55,7 @@ const Dairy = () => {
                                 <h5 className="card-title">{item.name}</h5>
                                 <p className="card-text">{item.description}</p>
                                 <p className="card-text"><strong>Price:</strong> RS: {item.price}</p>
-                                <button className='btn btn-warning shadow fw-bold' onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
+                                <button className='btn btn-warning shadow fw-bold' onClick={() => handleAddToCart(item)}>Add to Cart</button>
                                 </div>
                         </div>
                     </div>

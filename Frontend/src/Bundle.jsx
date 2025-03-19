@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addToCart } from './CartSlice';
-import Cart from './Cart';
-
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 const Bundle = () => {
   const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,8 +38,14 @@ const Bundle = () => {
     return <div className="alert alert-danger">{error}</div>;
   }
 const dispatch=useDispatch();
-  return (
+ const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    toast.success(`${item.name} added to cart!`, { position: 'top-right' });
+  };
+ 
+  return (            
     <div className="container">
+      <ToastContainer/>
       <div className="row">
         {item.map((item, index) => {
           return (
@@ -52,7 +58,10 @@ const dispatch=useDispatch();
                     <strong>Price:</strong> RS: {item.price}
                   </div>
                   <div className="card-text">{item.description}</div>
-                  <button className='btn btn-warning fw-bold' onClick={() => dispatch(addToCart(item))}>Add to cart</button>
+                  <button className='btn btn-warning fw-bold' 
+                  onClick={() => handleAddToCart(item)}
+                  //  onClick={()=> handleAddToCart(item)} 
+                   >Add to cart</button>
                 </div>
               </div>
             </div>

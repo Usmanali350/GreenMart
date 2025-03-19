@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addToCart } from './CartSlice';
-import { ToastContainer, toast } from 'react-toastify'; // ✅ Import toastify
-import 'react-toastify/dist/ReactToastify.css'; // ✅ Import toastify CSS
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Bakery = () => {
   const [item, Setitem] = useState([]);
@@ -42,7 +42,7 @@ const Bakery = () => {
 
   const dispatch = useDispatch();
 
-  // ✅ Function to handle adding item to cart and showing toast notification
+
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
     toast.success(`${item.name} added to cart!`, { position: 'top-right' });
@@ -50,8 +50,7 @@ const Bakery = () => {
 
   return (
     <div className='container'>
-      <ToastContainer /> {/* ✅ Toast container to display notifications */}
-      
+      <ToastContainer />
       <div className="row">
         {item.map((item, index) => {
           return (
@@ -62,8 +61,6 @@ const Bakery = () => {
                   <div className="card-title h4">{item.name}</div>
                   <h1 className="card-text h3"><strong>Price=</strong> RS: {item.price}</h1>
                   <div className="card-text h5">{item.description}</div>
-                  
-                  {/* ✅ Modified button to show toast on adding to cart */}
                   <button className='btn btn-warning fw-bold' onClick={() => handleAddToCart(item)}>
                     Add to cart
                   </button>
