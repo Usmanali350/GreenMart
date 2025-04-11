@@ -9,12 +9,10 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const dispatch = useDispatch();
-
   const handleRemove = (productId) => {
     dispatch(removeFromCart({ productId }));
     toast.error("Item removed from cart!", { position: "top-right" });
   };
-
   return (
     <div className="mb-5 mt-5">
       <ToastContainer />
